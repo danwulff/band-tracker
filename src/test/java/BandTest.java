@@ -74,5 +74,38 @@ public class BandTest {
     assertEquals(null, Band.find(myBandId));
   }
 
+  @Test
+  public void addVenue_addsVenueToBand() {
+    Venue myVenue = new Venue("Carnegie");
+    myVenue.save();
+    Band myBand = new Band("Coldwar Kids");
+    myBand.save();
+    myBand.addVenue(myVenue);
+    Venue savedVenue = myBand.getVenues().get(0);
+    assertTrue(myVenue.equals(savedVenue));
+  }
+
+  @Test
+  public void getVenues_returnsAllVenues_List() {
+    Venue myVenue = new Venue("Carnegie");
+    myVenue.save();
+    Band myBand = new Band("Coldwar Kids");
+    myBand.save();
+    myBand.addVenue(myVenue);
+    List<Venue> savedVenues = myBand.getVenues();
+    assertEquals(1, savedVenues.size());
+  }
+
+
+  @Test
+  public void delete_deletesAllBandsAndVenuesAssociations() {
+    Venue myVenue = new Venue("Carnegie");
+    myVenue.save();
+    Band myBand = new Band("Coldwar Kids");
+    myBand.save();
+    myBand.addVenue(myVenue);
+    myBand.delete();
+    assertEquals(0, myVenue.getBands().size());
+  }
 
 }

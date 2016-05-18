@@ -81,7 +81,7 @@ public class Band {
     }
   }
 
-  /*public void addVenue(Venue venue) {
+  public void addVenue(Venue venue) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO bands_venues (band_id, venue_id) VALUES (:band_id, :venue_id)";
       con.createQuery(sql)
@@ -109,5 +109,6 @@ public class Band {
       }
       return venues;
     }
-  }*/
+  }
+
 }
