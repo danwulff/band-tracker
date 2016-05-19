@@ -17,7 +17,7 @@ _This is an example of java use, specifically SQL database use with many-to-many
 * _CREATE TABLE bands(id serial PRIMARY KEY, name varchar);_
 * _CREATE TABLE venues(id serial PRIMARY KEY, name varchar);_
 * _CREATE TABLE bands_venues(id serial PRIMARY KEY, band_id int, venue_id int);_
-* _(if running gradle tests) CREATE DATABASE band_tracker_test FROM TEMPLATE hair_salon;_
+* _(if running gradle tests) CREATE DATABASE band_tracker_test FROM TEMPLATE band_tracker;_
 * _To view the webpage, change the command line directory to be the root of the project folder._
 * _type "gradle run" into the command line._
 * _Open a browser and browse to http://localhost:4567/_
