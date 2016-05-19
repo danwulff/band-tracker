@@ -1,0 +1,16 @@
+<h1>Edit $band.getName()</h1><br>
+
+<form action='/bands/$band.getId()' method='post'>
+  <input id="band_id" name="band_id" type="hidden" value="$band.getId()">
+  <label for="name">Change the name of this band</label><br>
+  <input id="name" name="name">
+  <button type="submit" class="btn btn-info">Update name</button>
+</form><br>
+
+<form action='/bands/$band.getId()/delete' method='post'>
+  <label for="band_id">Delete this band</label><br>
+  <input id="band_id" name="band_id" type="hidden" value="$band.getId()">
+  <button type="submit" class="btn btn-info">Delete</button>
+</form><br>
+
+<p><a href="/bands/$band.getId()">Go back</a></p>

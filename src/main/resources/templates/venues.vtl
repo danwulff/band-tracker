@@ -1,0 +1,16 @@
+<h1>Your Venues</h1>
+
+<ul>
+  #foreach ($venue in $venues)
+    <li>$venue.getName()</li>
+  #end
+</ul><br>
+
+<p>Add a new venue:</p>
+<form action="/venues" method="post">
+  <label for="name">Venue name</label><br>
+  <input id="name" name="name" type="text"><br>
+  <button type="submit" class="btn btn-success">Add Venue</button>
+</form>
+<br>
+<p><a href="/">Home</a></p>
