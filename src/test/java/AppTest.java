@@ -126,4 +126,25 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Carnegie");
   }
 
+  @Test
+  public void individualVenuePageDisplaysVenueName() {
+    Venue testVenue = new Venue("Carnegie");
+    testVenue.save();
+    String url = String.format("http://localhost:4567/venues/%d", testVenue.getId());
+    goTo(url);
+    assertThat(pageSource()).contains("Carnegie");
+  }
+
+  @Test
+  public void individualVenuePageDisplaysConnectedBandss() {
+    Band testBand = new Band("Citizen Cope");
+    testBand.save();
+    Venue testVenue = new Venue("Carnegie");
+    testVenue.save();
+    testBand.addVenue(testVenue);
+    String url = String.format("http://localhost:4567/venues/%d", testVenue.getId());
+    goTo(url);
+    assertThat(pageSource()).contains("Citizen Cope");
+  }
+
 }

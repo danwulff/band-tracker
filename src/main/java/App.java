@@ -86,6 +86,7 @@ public class App {
       return null;
     });
 
+    //Venue pages------------------------------------------
     get ("/venues", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       model.put("venues", Venue.all());
@@ -104,6 +105,15 @@ public class App {
       response.redirect("/venues");
       return null;
     });
+
+    get ("/venues/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      int id = Integer.parseInt(request.params("id"));
+      Venue thisVenue = Venue.find(id);
+      model.put("venue", thisVenue);
+      model.put("template", "templates/venue.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
   }
 }

@@ -2,7 +2,7 @@
 
 <ul>
   #foreach ($venue in $venues)
-    <li>$venue.getName()</li>
+    <li><a href="/venues/$venue.getId()">$venue.getName()</a></li>
   #end
 </ul><br>
 
