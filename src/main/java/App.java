@@ -24,6 +24,10 @@ public class App {
 
     post ("/bands", (request, response) -> {
       String name = request.queryParams("name");
+      if (name.equals("")) {
+        response.redirect("/bands");
+        return null;
+      }
       Band newBand = new Band(name);
       newBand.save();
       response.redirect("/bands");
@@ -63,6 +67,11 @@ public class App {
       int id = Integer.parseInt(request.params("id"));
       Band thisBand = Band.find(id);
       String name = request.queryParams("name");
+      if (name.equals("")) {
+        String url = String.format("http://localhost:4567/bands/%d/edit", id);
+        response.redirect(url);
+        return null;
+      }
       thisBand.update(name);
       String url = String.format("http://localhost:4567/bands/%d", id);
       response.redirect(url);
@@ -86,6 +95,10 @@ public class App {
 
     post ("/venues", (request, response) -> {
       String name = request.queryParams("name");
+      if (name.equals("")) {
+        response.redirect("/venues");
+        return null;
+      }
       Venue newVenue = new Venue(name);
       newVenue.save();
       response.redirect("/venues");
