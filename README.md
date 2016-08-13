@@ -6,7 +6,7 @@
 
 ## Description
 
-_This is an example of java use, specifically SQL database use with many-to-many relationships. This is a  website that gives a user an interface for a band tracker, to create bands and keep track of the venues they have played at. The website also allows bandsto be deleted and updated as needed._
+_This is an example of java use, specifically SQL database use with many-to-many relationships. This is a  website that gives a user an interface for a band tracker, to create bands and keep track of the venues they have played at. The website also allows bands to be deleted and updated as needed._
 
 ## Setup/Installation Requirements
 
